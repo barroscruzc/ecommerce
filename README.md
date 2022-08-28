@@ -449,11 +449,6 @@ curl --location --request GET 'localhost:8080/pedidos'
 
 * **Cristhiane da Cruz** - [barroscruzc](https://github.com/barroscruzc)
 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Conhecimentos adquiridos e/ou aprimorados
 
 * APIs
