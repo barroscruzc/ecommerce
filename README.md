@@ -449,13 +449,12 @@ curl --location --request GET 'localhost:8080/pedidos'
 
 * **Cristhiane da Cruz** - [barroscruzc](https://github.com/barroscruzc)
 
+## Conhecimentos adquiridos e/ou aprimorados
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
+* APIs
+* Diferenças entre Web Server e Application Server
+* Estrutura de Application Server
+* MVC - camadas Model, View e Controller
+* Mapeamento Objeto Relacional com anotações JPA/Hibernate
+* Métodos HTTP (verbos GET, POST, PUT, DELETE)
 * etc
