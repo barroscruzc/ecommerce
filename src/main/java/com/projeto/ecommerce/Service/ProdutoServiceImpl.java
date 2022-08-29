@@ -16,19 +16,16 @@ public class ProdutoServiceImpl implements IProdutoService{
 	
 	@Override
 	public ArrayList<Produto> recuperarTodos() {
-		// TODO Auto-generated method stub
 		return (ArrayList<Produto>)dao.findAll();
 	}
 
 	@Override
 	public Produto recuperarPeloCodigo(Integer codigo) {
-		// TODO Auto-generated method stub
 		return dao.findById(codigo).orElse(null);
 	}
 
 	@Override
 	public Produto novoProduto(Produto novo) {
-		// TODO Auto-generated method stub
 		return dao.save(novo);
 	}
 

@@ -28,7 +28,6 @@ public class PedidoServiceImpl implements IPedidoService {
 
 	@Override
 	public Pedido recuperarPeloNumero(Integer numero) {
-		// TODO Auto-generated method stub
 		return dao.findById(numero).orElse(null);
 	}
 	
