@@ -2,6 +2,12 @@
 
 API desenvolvida durante o treinamento **If Black, then Code (IBM & Gama Academy)**, durante as aulas sobre Spring Boot do Prof. Isidro Massetto. A publicação da documentação com *Postman* pode ser visualizada **<a href="https://documenter.getpostman.com/view/21287524/VUr1GXw9">aqui<a/>**.
 
+## Modelagem do banco de dados
+Diagrama EER
+
+![image](https://user-images.githubusercontent.com/93226440/187266904-e1786323-2ee3-47b4-92b0-3c25697e2c46.png)
+
+
 ## Endpoints
 
 ## `GET` `/departamentos`
@@ -85,7 +91,7 @@ curl --location --request PUT 'localhost:8080/departamentos' \
 }
 ```
 
-## `DELETE` `/departamentos/{id}`
+## `DELETE` `/departamentos/{codigo}`
 Rota utilizada para excluir registros de departamentos.
 
 #### Exemplo de requisição
@@ -94,8 +100,8 @@ curl --location --request DELETE 'localhost:8080/departamentos/3'
 ```
 
 
-## `GET` `/departamentos/{id}`
-Rota para buscar departamento por ID.
+## `GET` `/departamentos/{codigo}`
+Rota para buscar departamento por codigo.
 
 #### Exemplo de requisição
 ```curl
@@ -222,6 +228,50 @@ curl --location --request GET 'localhost:8080/produtos/3'
     }
 }
 ```
+
+## `PUT` `/produtos/{id}`
+#### Exemplo de requisição
+```curl
+curl --location --request PUT 'localhost:8080/produtos/8' \
+--data-raw '{
+    "codigo": 8,
+    "nome": "Cabo HDMI",
+    "descricao": "Cabo para monitores, TVs e computadores",
+    "preco": 40,
+    "estoque": 10,
+    "linkFoto": "caboHDMI.png",
+    "departamento": {
+        "codigo": 1
+    }
+}'
+```
+
+#### Exemplo de resposta
+`HTTP Status 200`
+
+
+```json
+{
+  "codigo": 8,
+  "nome": "Cabo HDMI",
+  "descricao": "Cabo para monitores, TVs e computadores",
+  "preco": 40,
+  "estoque": 10,
+  "linkFoto": "caboHDMI.png",
+  "departamento": {
+    "codigo": 1,
+    "nome": null,
+    "descricao": null
+  }
+}
+```
+
+## `DELETE` `/produtos/{id}`
+#### Exemplo de requisição
+```curl
+curl --location --request DELETE 'localhost:8080/produtos/8'
+```
+
 
 ## `POST` `/pedidos`
 Rota para registrar novo pedido no sistema.
