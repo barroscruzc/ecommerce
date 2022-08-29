@@ -49,7 +49,7 @@ public class ProdutoController {
 
 	//atualizar registro
 	@PutMapping("/produtos/{codigo}")
-	public ResponseEntity<Produto> atualizarProduto(@PathVariable("id") Integer codigo, @RequestBody Produto produto){
+	public ResponseEntity<Produto> atualizarProduto(@PathVariable("codigo") Integer codigo, @RequestBody Produto produto){
 		Produto res = service.recuperarPeloCodigo(codigo);
 		if (res != null) {
 			service.atualizarProduto(codigo, produto);
