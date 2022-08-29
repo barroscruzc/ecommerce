@@ -45,9 +45,9 @@ public class ControllerDepartamento {
 		return ResponseEntity.badRequest().build();
 	}
 	
-	@DeleteMapping("/departamentos/{id}")
-	public ResponseEntity<Departamento> excluirDepartamento(@PathVariable Integer id) {
-		service.excluirDepartamento(id);
+	@DeleteMapping("/departamentos/{codigo}")
+	public ResponseEntity<Departamento> excluirDepartamento(@PathVariable Integer codigo) {
+		service.excluirDepartamento(codigo);
 		return ResponseEntity.ok(null);
 	}
 	

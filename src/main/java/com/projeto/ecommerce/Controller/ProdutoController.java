@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,5 +45,26 @@ public class ProdutoController {
 			return ResponseEntity.ok(res);
 		}
 		return ResponseEntity.badRequest().build();
+	}
+
+	//atualizar registro
+	@PutMapping("/produtos/{codigo}")
+	public ResponseEntity<Produto> atualizarProduto(@PathVariable("id") Integer codigo, @RequestBody Produto produto){
+		Produto res = service.recuperarPeloCodigo(codigo);
+		if (res != null) {
+			service.atualizarProduto(codigo, produto);
+			return ResponseEntity.ok(res);
+		}
+		return ResponseEntity.badRequest().build();
+	}
+
+	@DeleteMapping("/produtos/{codigo}")
+	public ResponseEntity<String> excluir(@PathVariable("codigo") Integer codigo){
+		Produto res = service.recuperarPeloCodigo(codigo);
+		if (res != null) {
+			service.excluir(codigo);
+			return ResponseEntity.ok("Exclusão realizada com sucesso.");
+		}
+		return ResponseEntity.notFound().build();
 	}
 }
